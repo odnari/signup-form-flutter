@@ -6,8 +6,6 @@ class GradientButton extends StatelessWidget {
     super.key,
     required this.label,
     required this.onPressed,
-    this.width = 240.0,
-    this.height = 48.0,
     this.gradient = const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
@@ -18,15 +16,15 @@ class GradientButton extends StatelessWidget {
     ),
     this.borderRadius = const BorderRadius.all(Radius.circular(80.0)),
     this.textStyle,
+    this.padding = const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
   });
 
   final String label;
   final VoidCallback onPressed;
-  final double width;
-  final double height;
   final LinearGradient gradient;
   final BorderRadius borderRadius;
   final TextStyle? textStyle;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +40,9 @@ class GradientButton extends StatelessWidget {
           borderRadius: borderRadius,
         ),
         child: Container(
-          width: width,
-          height: height,
+          width: double.infinity,
           alignment: Alignment.center,
+          padding: padding,
           child: Text(
             label,
             style: textStyle ??
