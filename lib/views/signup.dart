@@ -111,7 +111,7 @@ class _AuthPageState extends State<AuthPage> {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/background.png'),
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -128,19 +128,23 @@ class _AuthPageState extends State<AuthPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Sign up",
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.only(top: 40, bottom: 32),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Sign up",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 24),
                 FormTextInput(
                   hintText: 'Email',
                   keyboardType: TextInputType.emailAddress,
@@ -166,7 +170,7 @@ class _AuthPageState extends State<AuthPage> {
                   obscureText: !_isPasswordVisible,
                   onChanged: _onPasswordChanged,
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 32),
                 GradientButton(label: 'Sign Up', onPressed: _submitForm),
               ],
             ),
