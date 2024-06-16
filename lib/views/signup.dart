@@ -9,7 +9,7 @@ class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
 
   @override
-  _AuthPageState createState() => _AuthPageState();
+  State<AuthPage> createState() => _AuthPageState();
 }
 
 class _AuthPageState extends State<AuthPage> {
